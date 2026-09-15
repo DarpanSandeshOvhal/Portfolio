@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud & DevOps Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            400: '#818cf8',
+                            500: '#667eea',
+                            600: '#5b5fe8',
+                            700: '#764ba2'
+                        }
+                    },
+                    boxShadow: {
+                        glow: '0 0 45px rgba(102,126,234,.25)',
+                        card: '0 20px 70px rgba(15,23,42,.10)'
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 8s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'spin-slow': 'spin 18s linear infinite',
+                        'devops': 'devopsFloat var(--duration) ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translate3d(0,0,0)' },
+                            '50%': { transform: 'translate3d(0,-24px,0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' }
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '.35', transform: 'scale(1)' },
+                            '50%': { opacity: '.75', transform: 'scale(1.08)' }
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        devopsFloat: {
+                            '0%': { transform: 'translate3d(0,0,0) rotate(-2deg)' },
+                            '50%': {
+                                transform: 'translate3d(calc(var(--dx) * .55), calc(var(--dy) * .55), 0) rotate(1deg)'
+                            },
+                            '100%': {
+                                transform: 'translate3d(var(--dx), var(--dy), 0) rotate(2deg)'
+                            }
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden selection:bg-indigo-200 selection:text-indigo-950">
+
+    <div id="cursorGlow" class="hidden md:block pointer-events-none fixed z-[9998] h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(102,126,234,.13),transparent_68%)] mix-blend-multiply"></div>
+
+    <!-- NAVIGATION -->
+    <header id="navbar"
+        class="absolute inset-x-0 top-0 z-[1000] border-b border-transparent bg-transparent transition-all duration-300">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+            <a href="#home" class="group font-poppins text-2xl font-extrabold tracking-tight">
+                <span class="bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-indigo-400 bg-clip-text text-transparent">Darpan</span>
+            </a>
+
+            <div id="navLinks"
+                class="flex w-auto flex-row items-center gap-1">
+                <a href="#home" class="nav-link group relative px-3 py-2 text-sm font-semibold text-white transition hover:text-indigo-200">Home<span class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-indigo-300 transition-all duration-300 ease-out group-hover:w-3/4"></span></a>
+                <a href="#skills" class="nav-link group relative px-3 py-2 text-sm font-semibold text-white transition hover:text-indigo-200">Skills<span class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-indigo-300 transition-all duration-300 ease-out group-hover:w-3/4"></span></a>
+                <a href="#studies" class="nav-link group relative px-3 py-2 text-sm font-semibold text-white transition hover:text-indigo-200">Studies<span class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-indigo-300 transition-all duration-300 ease-out group-hover:w-3/4"></span></a>
+                <a href="#gallery" class="nav-link group relative px-3 py-2 text-sm font-semibold text-white transition hover:text-indigo-200">Gallery<span class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-indigo-300 transition-all duration-300 ease-out group-hover:w-3/4"></span></a>
+                <a href="#contact" class="nav-link group relative px-3 py-2 text-sm font-semibold text-white transition hover:text-indigo-200">Contact<span class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-indigo-300 transition-all duration-300 ease-out group-hover:w-3/4"></span></a>
+            </div>
+
+
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="relative min-h-screen overflow-hidden bg-[linear-gradient(125deg,#0f172a_0%,#312e81_42%,#667eea_72%,#764ba2_100%)] bg-[length:220%_220%] animate-gradient text-white">
+        <div class="absolute -left-28 top-24 h-72 w-72 rounded-full bg-indigo-500/30 blur-3xl animate-pulse-soft"></div>
+        <div class="absolute -right-24 bottom-10 h-96 w-96 rounded-full bg-fuchsia-500/25 blur-3xl animate-pulse-soft"></div>
+        <div class="absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl"></div>
+
+        <div id="particles" class="absolute inset-0"></div>
+
+        <!-- Moving DevOps tool cloud -->
+        <div id="devops-cloud" class="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden="true"></div>
+
+        <div class="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-14 px-5 pb-16 pt-28 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
+            <div class="reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+                <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20/10 px-4 py-2 text-sm font-medium backdrop-blur-md">
+                    <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span>
+                    Available for opportunities
+                </div>
+
+                <p class="mb-3 text-sm font-bold uppercase tracking-[.28em] text-indigo-200">Cloud • DevOps • Linux</p>
+
+                <h1 class="font-poppins text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+                    Building the
+                    <span class="block gradient-text">cloud future.</span>
+                </h1>
+
+                <div id="typing-text" class="mt-6 min-h-[58px] max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl"></div>
+
+                <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+                    <a href="#contact"
+                        class="group hero-btn-contact inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 font-bold text-indigo-700 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:text-white hover:shadow-emerald-500/30">
+                        Get In Touch
+                        <i class="fas fa-arrow-right transition group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="#skills"
+                        class="group hero-btn-skills inline-flex items-center justify-center gap-2 rounded-2xl border border-white/25/10 px-7 py-3.5 font-bold text-white backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-orange-500/30">
+                        <i class="fas fa-code transition group-hover:scale-110"></i>
+                        Explore Skills
+                    </a>
+                </div>
+
+                <div class="mt-10 flex flex-wrap gap-3 text-sm text-slate-300">
+                    <span class="rounded-full border border-white/10/5 px-3 py-1.5 font-semibold cursor-default transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#FF9900] hover:bg-[#FF9900] hover:text-white hover:shadow-[0_10px_30px_rgba(255,153,0,.28)]">AWS</span>
+                    <span class="rounded-full border border-white/10/5 px-3 py-1.5 font-semibold cursor-default transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#2496ED] hover:bg-[#2496ED] hover:text-white hover:shadow-[0_10px_30px_rgba(36,150,237,.28)]">Docker</span>
+                    <span class="rounded-full border border-white/10/5 px-3 py-1.5 font-semibold cursor-default transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#326CE5] hover:bg-[#326CE5] hover:text-white hover:shadow-[0_10px_30px_rgba(50,108,229,.28)]">Kubernetes</span>
+                    <span class="rounded-full border border-white/10/5 px-3 py-1.5 font-semibold cursor-default transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#844FBA] hover:bg-[#844FBA] hover:text-white hover:shadow-[0_10px_30px_rgba(132,79,186,.28)]">Terraform</span>
+                    <span class="rounded-full border border-white/10/5 px-3 py-1.5 font-semibold cursor-default transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-[#D24939] hover:bg-[#D24939] hover:text-white hover:shadow-[0_10px_30px_rgba(210,73,57,.28)]">Jenkins</span>
+                </div>
+            </div>
+
+            <div class="reveal relative flex justify-center">
+                <div class="absolute h-[360px] w-[360px] rounded-full border border-white/10 animate-spin-slow"></div>
+                <div class="absolute h-[300px] w-[300px] rounded-full border border-dashed border-indigo-200/20 animate-spin-slow"></div>
+
+                <div class="relative rounded-[2rem] border border-white/15/10 p-3 shadow-2xl shadow-black/30 backdrop-blur-md">
+                    <div class="absolute -right-7 -top-6 rounded-2xl border border-white/15 bg-slate-950/60 px-4 py-3 shadow-xl backdrop-blur-md animate-float">
+                        <div class="text-xs text-slate-400">Focus</div>
+                        <div class="font-bold">Cloud & DevOps</div>
+                    </div>
+
+                    <img src="/Darpan.png" alt=""
+                        class="h-[300px] w-[300px] rounded-[1.6rem] object-cover object-center sm:h-[380px] sm:w-[380px]">
+
+                    <div class="absolute -bottom-5 -left-5 rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-3 shadow-xl backdrop-blur-md">
+                        <div class="flex items-center gap-3">
+                            <div class="grid h-10 w-10 place-items-center rounded-xl bg-indigo-500/20 text-indigo-300">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Learning by</div>
+                                <div class="font-bold">Building & Deploying</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-7 left-1/2 -translate-x-1/2 text-center text-xs text-slate-300">
+            <div class="mb-2">Scroll to explore</div>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="relative bg-slate-50 py-24 lg:py-32">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center reveal">
+                <p class="text-sm font-bold uppercase tracking-[.25em] text-indigo-600">What I work with</p>
+                <h2 class="mt-3 font-poppins text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Skills & Technologies</h2>
+                <div class="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+                <p class="mt-5 text-slate-600">A modern cloud and DevOps focused toolkit, presented with measurable learning progress.</p>
+            </div>
+
+            <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-indigo-200 hover:shadow-glow">
+                    <div class="mb-7 flex items-start justify-between">
+                        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-indigo-50 text-2xl text-indigo-600 transition group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-600">90%</span>
+                    </div>
+                    <h3 class="font-poppins text-xl font-bold text-slate-900">Cloud Computing</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-600">Deploying and managing scalable cloud infrastructure with attention to availability, security and cost.</p>
+                    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100"><div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-indigo-500 to-violet-500" data-skill="90"></div></div>
+                </div>
+
+
+                <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-indigo-200 hover:shadow-glow">
+    <div class="mb-7 flex items-start justify-between">
+        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-blue-50 text-2xl text-blue-600 transition group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+            <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">85%</span>
+    </div>
+
+    <h3 class="font-poppins text-xl font-bold text-slate-900">Computer Networks</h3>
+
+    <p class="mt-3 text-sm leading-6 text-slate-600">
+        Networking fundamentals, OSI and TCP/IP models, IP addressing, subnetting,
+        routing, switching, DNS, DHCP, network protocols, and troubleshooting.
+    </p>
+
+    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100">
+        <div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-blue-600 to-indigo-500" data-skill="85"></div>
+    </div>
+</div>
+
+                <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-indigo-200 hover:shadow-glow">
+                    <div class="mb-7 flex items-start justify-between">
+                        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-slate-100 text-2xl text-slate-800 transition group-hover:scale-110 group-hover:bg-slate-900 group-hover:text-white">
+                            <i class="fa-brands fa-linux"></i>
+                        </div>
+                        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">95%</span>
+                    </div>
+                    <h3 class="font-poppins text-xl font-bold text-slate-900">Linux Administration</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-600">CLI, shell scripting, system configuration, permissions, processes and server administration.</p>
+                    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100"><div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-slate-700 to-indigo-500" data-skill="95"></div></div>
+                </div>
+
+                <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-orange-200 hover:shadow-glow">
+    <div class="mb-7 flex items-start justify-between">
+        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-orange-50 text-2xl text-orange-600 transition group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white">
+            <i class="fa-brands fa-git-alt"></i>
+        </div>
+        <span class="rounded-full bg-orange-50 px-3 py-1 text-xs font-bold text-orange-700">0%</span>
+    </div>
+
+    <h3 class="font-poppins text-xl font-bold text-slate-900">Git & Version Control</h3>
+
+    <p class="mt-3 text-sm leading-6 text-slate-600">
+        Git fundamentals, repositories, branching, merging, staging, commits, 
+        remote repositories, GitHub, pull, push and version control workflows.
+    </p>
+
+    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100">
+        <div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-orange-500 to-red-500" data-skill="90"></div>
+    </div>
+</div>
+
+                <!-- <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-indigo-200 hover:shadow-glow">
+                    <div class="mb-7 flex items-start justify-between">
+                        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-cyan-50 text-2xl text-cyan-600 transition group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white">
+                            <i class="fas fa-dharmachakra"></i>
+                        </div>
+                        <span class="rounded-full bg-cyan-50 px-3 py-1 text-xs font-bold text-cyan-700">80%</span>
+                    </div>
+                    <h3 class="font-poppins text-xl font-bold text-slate-900">Kubernetes</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-600">Container orchestration, workloads and cluster concepts for cloud-native deployments.</p>
+                    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100"><div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-cyan-500 to-indigo-500" data-skill="80"></div></div>
+                </div> -->
+
+                <!-- <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-indigo-200 hover:shadow-glow">
+                    <div class="mb-7 flex items-start justify-between">
+                        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-orange-50 text-2xl text-orange-500 transition group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <span class="rounded-full bg-orange-50 px-3 py-1 text-xs font-bold text-orange-600">88%</span>
+                    </div>
+                    <h3 class="font-poppins text-xl font-bold text-slate-900">Jenkins</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-600">CI/CD automation and continuous integration workflows for repeatable delivery.</p>
+                    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100"><div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-orange-400 to-indigo-500" data-skill="88"></div></div>
+                </div> -->
+
+                <!-- <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-indigo-200 hover:shadow-glow">
+                    <div class="mb-7 flex items-start justify-between">
+                        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-violet-50 text-2xl text-violet-600 transition group-hover:scale-110 group-hover:bg-violet-600 group-hover:text-white">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <span class="rounded-full bg-violet-50 px-3 py-1 text-xs font-bold text-violet-600">82%</span>
+                    </div>
+                    <h3 class="font-poppins text-xl font-bold text-slate-900">Terraform</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-600">Infrastructure as Code and repeatable provisioning of cloud resources.</p>
+                    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100"><div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-violet-500 to-indigo-500" data-skill="82"></div></div>
+                </div> -->
+
+                <div class="skill-card reveal group rounded-3xl border border-slate-200 p-7 shadow-card transition duration-500 hover:-translate-y-2 hover:border-indigo-200 hover:shadow-glow">
+                    <div class="mb-7 flex items-start justify-between">
+                        <div class="grid h-14 w-14 place-items-center rounded-2xl bg-emerald-50 text-2xl text-emerald-600 transition group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-600">90%</span>
+                    </div>
+                    <h3 class="font-poppins text-xl font-bold text-slate-900">Shell & Automation</h3>
+                    <p class="mt-3 text-sm leading-6 text-slate-600">Linux commands and shell scripting to automate repetitive operational tasks.</p>
+                    <div class="mt-6 h-2 overflow-hidden rounded-full bg-slate-100"><div class="skill-fill w-0 h-full rounded-full transition-[width] duration-[1800ms] ease-[cubic-bezier(.22,1,.36,1)] bg-gradient-to-r from-emerald-500 to-indigo-500" data-skill="90"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDIES -->
+    <section id="studies" class="bg-white py-24 lg:py-32">
+        <div class="mx-auto max-w-5xl px-5 lg:px-8">
+            <div class="text-center reveal">
+                <p class="text-sm font-bold uppercase tracking-[.25em] text-indigo-600">Learning path</p>
+                <h2 class="mt-3 font-poppins text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Education & Certifications</h2>
+                <div class="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+            </div>
+
+            <div class="relative mt-14">
+                <div class="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-indigo-500 via-violet-600 to-transparent md:left-1/2"></div>
+
+                <div class="relative mb-10 md:flex md:justify-start reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+    <div class="ml-14 w-full rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-card md:ml-0 md:w-[calc(50%-2rem)] md:pr-10">
+        <span class="text-sm font-bold text-indigo-600">2022 – 2025</span>
+        <h3 class="mt-2 font-poppins text-xl font-bold text-slate-900">Bachelor of Computer Applications (BCA)</h3>
+        <p class="mt-2 leading-7 text-slate-600">
+            Studied computer fundamentals, programming, data structures, database management,
+            operating systems, computer networks, web technologies, software engineering,
+            and application development as part of the YCMOU BCA curriculum.
+        </p>
+    </div>
+    <div class="absolute left-[10px] top-7 grid h-5 w-5 place-items-center rounded-full bg-indigo-600 ring-8 ring-indigo-50 md:left-1/2 md:-translate-x-1/2"></div>
+</div>
+
+
+<div class="relative mb-10 md:flex md:justify-end reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+    <div class="ml-14 w-full rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-card md:ml-0 md:w-[calc(50%-2rem)] md:pl-10">
+        <span class="text-sm font-bold text-indigo-600">2025 – Present</span>
+        <h3 class="mt-2 font-poppins text-xl font-bold text-slate-900">Master of Computer Applications (MCA)</h3>
+        <p class="mt-2 leading-7 text-slate-600">
+            Currently pursuing MCA at Nutan Maharashtra Institute of Engineering and Technology,
+            developing knowledge in advanced programming, software development, database systems,
+            computer networks, cloud computing, and DevOps practices, with a focus on practical
+            application development and modern IT infrastructure.
+        </p>
+    </div>
+    <div class="absolute left-[10px] top-7 grid h-5 w-5 place-items-center rounded-full bg-indigo-600 ring-8 ring-indigo-50 md:left-1/2 md:-translate-x-1/2"></div>
+</div>
+                <!-- <div class="relative mb-10 md:flex md:justify-start reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+                    <div class="ml-14 w-full rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-card md:ml-0 md:w-[calc(50%-2rem)] md:pr-10">
+                        <span class="text-sm font-bold text-indigo-600">2022 – 2025</span>
+                        <h3 class="mt-2 font-poppins text-xl font-bold text-slate-900">Bachelors of Computer Application</h3>
+                        <p class="mt-2 leading-7 text-slate-600">Graduated with distinction, specializing in cloud computing and software engineering.</p>
+                    </div>
+                    <div class="absolute left-[10px] top-7 grid h-5 w-5 place-items-center rounded-full bg-indigo-600 ring-8 ring-indigo-50 md:left-1/2 md:-translate-x-1/2"></div>
+                </div> -->
+
+                <div class="relative mb-10 md:flex md:justify-end reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+                    <div class="ml-14 w-full rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-card md:ml-0 md:w-[calc(50%-2rem)] md:pl-10">
+                        <span class="text-sm font-bold text-indigo-600">2026</span>
+                        <h3 class="mt-2 font-poppins text-xl font-bold text-slate-900">Cloud Application Developer (Trainee)</h3>
+                        <p class="mt-2 leading-7 text-slate-600">Building practical skills in DevOps and AWS, with a focus on Linux, Git, Docker, CI/CD, automation, cloud infrastructure, EC2, S3, IAM, VPC, and deploying applications on AWS</p>
+                    </div>
+                    <div class="absolute left-[10px] top-7 grid h-5 w-5 place-items-center rounded-full bg-violet-600 ring-8 ring-violet-50 md:left-1/2 md:-translate-x-1/2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="bg-slate-950 py-24 text-white lg:py-32">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+            <div class="max-w-2xl reveal">
+                <p class="text-sm font-bold uppercase tracking-[.25em] text-indigo-300">Visual proof</p>
+                <h2 class="mt-3 font-poppins text-4xl font-extrabold tracking-tight sm:text-5xl">Projects & Gallery</h2>
+                <p class="mt-5 text-slate-400">A visual section for infrastructure, code, certifications and technical work.</p>
+            </div>
+
+            <div class="mt-12 grid auto-rows-[220px] gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="gallery-item reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900 sm:col-span-2 sm:row-span-2">
+                    <img src="/infra.jpg" alt="Cloud Infrastructure" class="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-end opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-indigo-950/95 via-indigo-950/25 to-transparent p-7">
+                        <div class="max-w-lg">
+                            <span class="inline-flex rounded-full border border-indigo-300/30 bg-indigo-400/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-indigo-200">01 • Cloud</span>
+                            <h3 class="mt-3 text-3xl font-extrabold">Cloud Infrastructure</h3>
+                            <p class="mt-2 text-sm leading-6 text-slate-200">
+                                AWS infrastructure, compute, networking, security and scalable cloud environments.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+                                <span class="rounded-full/10 px-3 py-1.5 text-white">AWS</span>
+                                <span class="rounded-full/10 px-3 py-1.5 text-white">EC2</span>
+                                <span class="rounded-full/10 px-3 py-1.5 text-white">VPC</span>
+                                <span class="rounded-full/10 px-3 py-1.5 text-white">Security Groups</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900">
+                    <img src="/Tools.png" alt="DevOps Tools" class="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-end opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-violet-950/95 via-violet-950/20 to-transparent p-5">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-violet-300">02 • DevOps</span>
+                            <h3 class="mt-2 text-xl font-extrabold">DevOps Tools</h3>
+                            <p class="mt-1 text-sm leading-5 text-slate-200">
+                                Containers, CI/CD, infrastructure automation and orchestration.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-1.5 text-[11px] font-semibold">
+                                <span class="rounded-full/10 px-2.5 py-1">Docker</span>
+                                <span class="rounded-full/10 px-2.5 py-1">Jenkins</span>
+                                <span class="rounded-full/10 px-2.5 py-1">Kubernetes</span>
+                                <span class="rounded-full/10 px-2.5 py-1">Terraform</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&auto=format&fit=crop&q=80" alt="Code Review" class="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-end opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-slate-950/95 to-transparent p-5">
+                        <h3 class="text-lg font-bold">Code & Automation</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80" alt="Team Meeting" class="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-end opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-slate-950/95 to-transparent p-5">
+                        <h3 class="text-lg font-bold">Collaboration</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=80" alt="Certification" class="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-end opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-slate-950/95 to-transparent p-5">
+                        <h3 class="text-lg font-bold">Certification</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="fixed inset-0 z-[2000] hidden items-center justify-center bg-slate-950/95 p-5 backdrop-blur-md">
+        <button id="lightboxClose" class="absolute right-6 top-6 grid h-12 w-12 place-items-center rounded-full/10 text-2xl text-white transition hover:bg-white/20" aria-label="Close">
+            &times;
+        </button>
+        <img id="lightboxImg" src="" alt="Expanded gallery image" class="max-h-[88vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl">
+    </div>
+
+    <!-- JOURNEY -->
+    <section id="journey" class="relative overflow-hidden bg-slate-50 py-24 lg:py-32">
+        <div class="absolute -right-40 top-20 h-96 w-96 rounded-full bg-indigo-200/30 blur-3xl"></div>
+
+        <div class="relative mx-auto max-w-6xl px-5 lg:px-8">
+            <div class="text-center reveal">
+                <p class="text-sm font-bold uppercase tracking-[.25em] text-indigo-600">The roadmap</p>
+                <h2 class="mt-3 font-poppins text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">My Journey</h2>
+                <div class="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+            </div>
+
+            <div class="relative mt-16 space-y-8">
+                <div class="group reveal flex flex-col gap-6 md:flex-row md:items-center">
+                    <div class="grid h-20 w-20 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-indigo-500 to-violet-600 text-2xl text-white shadow-xl shadow-indigo-500/20 transition group-hover:scale-110">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="flex-1 rounded-3xl border border-white/55/70 p-7 shadow-[0_20px_70px_rgba(15,23,42,.10)] backdrop-blur-[18px] transition group-hover:-translate-y-1 transition group-hover:-translate-y-1">
+                        <span class="text-sm font-bold text-indigo-600">2019 – 2021</span>
+                        <h3 class="mt-1 font-poppins text-xl font-bold text-slate-900">Higher Education</h3>
+                        <p class="mt-2 text-slate-600">Completed education in Commerce & Accounts</p>
+                    </div>
+                </div>
+
+                <div class="group reveal flex flex-col gap-6 md:flex-row-reverse md:items-center">
+                    <div class="grid h-20 w-20 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-violet-500 to-fuchsia-600 text-2xl text-white shadow-xl shadow-violet-500/20 transition group-hover:scale-110">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="flex-1 rounded-3xl border border-white/55/70 p-7 shadow-[0_20px_70px_rgba(15,23,42,.10)] backdrop-blur-[18px] transition group-hover:-translate-y-1 transition group-hover:-translate-y-1 md:text-right">
+                        <span class="text-sm font-bold text-violet-600">2022 – 2025</span>
+                        <h3 class="mt-1 font-poppins text-xl font-bold text-slate-900">Computer Applications</h3>
+                        <p class="mt-2 text-slate-600"> Built a strong foundation in computer applications, programming, database management, web technologies, operating systems, computer networks, and software engineering, with practical experience in developing and implementing software solutions.
+</p>
+                    </div>
+                </div>
+
+                <div class="group reveal flex flex-col gap-6 md:flex-row md:items-center">
+                    <div class="grid h-20 w-20 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-cyan-500 to-indigo-600 text-2xl text-white shadow-xl shadow-cyan-500/20 transition group-hover:scale-110">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="flex-1 rounded-3xl border border-white/55/70 p-7 shadow-[0_20px_70px_rgba(15,23,42,.10)] backdrop-blur-[18px] transition group-hover:-translate-y-1 transition group-hover:-translate-y-1">
+                        <span class="text-sm font-bold text-cyan-600">2025 – Present</span>
+                        <h3 class="mt-1 font-poppins text-xl font-bold text-slate-900">Cloud & DevOps</h3>
+                        <p class="mt-2 text-slate-600">Focused on cloud technologies, Linux, containers, orchestration and automation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-slate-950 px-5 pb-8 pt-20 text-white">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 md:items-end">
+                <div class="reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+                    <p class="text-sm font-bold uppercase tracking-[.25em] text-indigo-300">Let's connect</p>
+                    <h2 class="mt-3 max-w-xl font-poppins text-4xl font-extrabold tracking-tight sm:text-5xl">
+                        Let's build something <span class="bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-indigo-400 bg-clip-text text-transparent">great.</span>
+                    </h2>
+                </div>
+
+                <div class="flex flex-wrap gap-3 md:justify-end">
+                    <a href="https://www.linkedin.com/in/darpan-ovhal/" target="_blank" rel="noopener"
+                        class="grid h-12 w-12 place-items-center rounded-2xl border border-white/10/5 text-lg text-slate-300 transition hover:-translate-y-1 hover:bg-indigo-600 hover:text-[#0A66C2]">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/DarpanSandeshOvhal" target="_blank" rel="noopener"
+                        class="grid h-12 w-12 place-items-center rounded-2xl border border-white/10/5 text-lg text-slate-300 transition hover:-translate-y-1 hover:bg-indigo-600 hover:text-[#181717]">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="grid h-12 w-12 place-items-center rounded-2xl border border-white/10/5 text-lg text-slate-300 transition hover:-translate-y-1 hover:bg-indigo-600 hover:text-white">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" class="grid h-12 w-12 place-items-center rounded-2xl border border-white/10/5 text-lg text-slate-300 transition hover:-translate-y-1 hover:bg-indigo-600 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-5 py-7 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+                <div class="flex flex-wrap gap-x-6 gap-y-2">
+                    <a href="#home" class="transition hover:text-white">Home</a>
+                    <a href="#skills" class="transition hover:text-white">Skills</a>
+                    <a href="#studies" class="transition hover:text-white">Studies</a>
+                    <a href="#gallery" class="transition hover:text-white">Gallery</a>
+                    <a href="#journey" class="transition hover:text-white">Journey</a>
+                </div>
+                <p>&copy; 2026 Darpan@Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // -----------------------------
+        // Typing animation
+        // -----------------------------
+        const typingText = document.getElementById('typing-text');
+        const texts = [
+            "Hi, I'm a Cloud & DevOps learner building practical skills.",
+            "I work with AWS, Docker, Kubernetes, Linux and CI/CD.",
+            "Learning by building, automating and deploying."
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeWriter() {
+            const current = texts[textIndex];
+
+            if (deleting) {
+                charIndex--;
+            } else {
+                charIndex++;
+            }
+
+            typingText.textContent = current.substring(0, charIndex);
+
+            let speed = deleting ? 28 : 48;
+
+            if (!deleting && charIndex === current.length) {
+                speed = 1800;
+                deleting = true;
+            } else if (deleting && charIndex === 0) {
+                deleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                speed = 400;
+            }
+
+            setTimeout(typeWriter, speed);
+        }
+        typeWriter();
+
+        // -----------------------------
+        // Navbar scroll effect
+        // -----------------------------
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            // Keep the navbar transparent while scrolling.
+        }, { passive: true });
+
+        // -----------------------------
+        // Reveal animations
+        // -----------------------------
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // -----------------------------
+        // Skill progress animation
+        // -----------------------------
+        const skillObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+                    bar.style.width = `${bar.dataset.skill}%`;
+                });
+
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.skill-card').forEach(card => skillObserver.observe(card));
+
+        // -----------------------------
+        // Gallery lightbox
+        // -----------------------------
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const image = item.querySelector('img');
+                lightboxImg.src = image.src;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // -----------------------------
+        // Floating particles
+        // -----------------------------
+        const particleContainer = document.getElementById('particles');
+
+        for (let i = 0; i < 45; i++) {
+            const particle = document.createElement('span');
+            const size = Math.random() * 4 + 2;
+
+            particle.className = 'absolute rounded-full/20 pointer-events-none animate-float-slow';
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            particle.style.animationDuration = `${5 + Math.random() * 7}s`;
+
+            particleContainer.appendChild(particle);
+        }
+
+        // -----------------------------
+        // Cursor glow
+        // -----------------------------
+        const cursorGlow = document.getElementById('cursorGlow');
+
+        document.addEventListener('mousemove', e => {
+            cursorGlow.style.left = `${e.clientX}px`;
+            cursorGlow.style.top = `${e.clientY}px`;
+        }, { passive: true });
+
+        // -----------------------------
+        // Moving DevOps tool cloud
+        // -----------------------------
+        const devopsCloud = document.getElementById('devops-cloud');
+
+        const devopsTools = [
+            ['AWS', 'https://cdn.simpleicons.org/amazonaws/FF9900'],
+            ['Docker', 'https://cdn.simpleicons.org/docker/2496ED'],
+            ['Kubernetes', 'https://cdn.simpleicons.org/kubernetes/326CE5'],
+            ['Jenkins', 'https://cdn.simpleicons.org/jenkins/D24939'],
+            ['Terraform', 'https://cdn.simpleicons.org/terraform/844FBA'],
+            ['Linux', 'https://cdn.simpleicons.org/linux/FCC624'],
+            ['Git', 'https://cdn.simpleicons.org/git/F05032'],
+            ['GitHub', 'https://cdn.simpleicons.org/github/FFFFFF'],
+            ['Python', 'https://cdn.simpleicons.org/python/3776AB'],
+            ['Argo CD', 'https://cdn.simpleicons.org/argo/EF7B4D'],
+            ['Helm', 'https://cdn.simpleicons.org/helm/0F1689'],
+            ['Ansible', 'https://cdn.simpleicons.org/ansible/EE0000'],
+            ['Prometheus', 'https://cdn.simpleicons.org/prometheus/E6522C'],
+            ['Grafana', 'https://cdn.simpleicons.org/grafana/F46800'],
+            ['Nginx', 'https://cdn.simpleicons.org/nginx/009639'],
+            ['GitHub Actions', 'https://cdn.simpleicons.org/githubactions/2088FF'],
+            ['GitLab', 'https://cdn.simpleicons.org/gitlab/FC6D26'],
+            ['Jira', 'https://cdn.simpleicons.org/jira/0052CC'],
+            ['Bash', 'https://cdn.simpleicons.org/gnubash/4EAA25']
+        ];
+
+        const positions = [
+            [5, 16], [17, 70], [28, 11], [40, 78], [51, 19], [63, 69],
+            [75, 23], [87, 59], [8, 47], [22, 33], [35, 54], [47, 35],
+            [59, 48], [70, 12], [80, 42], [90, 76], [4, 82], [57, 85],
+            [31, 84]
+        ];
+
+        // Each tool gets a clear directional route instead of simply wobbling.
+        // The routes alternate left/right, diagonal, and vertical movement.
+        const directions = [
+            [-105,  18], [ 95,  32], [-75, -30], [ 88, -26], [-110,  38],
+            [ 100,  24], [-82, -34], [ 90,  42], [-115, -20], [ 78,  34],
+            [-92, -28], [ 105,  30], [-70,  38], [ 95, -32], [-100,  22],
+            [ 82, -36], [-90,  30], [ 108,  24], [-80, -30]
+        ];
+
+        devopsTools.forEach(([name, icon], index) => {
+            const tool = document.createElement('div');
+            tool.className = 'absolute flex min-w-[92px] flex-col items-center justify-center gap-2 rounded-2xl border border-white/15 bg-slate-900/30 px-3 py-3 text-center text-xs font-extrabold text-white/80 shadow-[0_8px_30px_rgba(0,0,0,.12)] backdrop-blur-[10px] animate-devops will-change-transform max-md:min-w-[76px] max-md:scale-[.78] max-md:px-2 max-md:py-2 max-md:text-[.66rem]';
+            tool.innerHTML = `<img src="${icon}" alt="${name} logo" loading="lazy" class="h-12 w-12 shrink-0 object-contain drop-shadow-[0_5px_10px_rgba(0,0,0,.22)] max-md:h-9 max-md:w-9"><span class="leading-tight text-shadow">${name}</span>`;
+
+            const [left, top] = positions[index];
+            const [dx, dy] = directions[index];
+
+            tool.style.left = `${left}%`;
+            tool.style.top = `${top}%`;
+            tool.style.setProperty('--dx', `${dx}px`);
+            tool.style.setProperty('--dy', `${dy}px`);
+            tool.style.setProperty('--duration', `${7 + (index % 5) * 1.15}s`);
+            tool.style.setProperty('--delay', `${-(index % 8) * .9}s`);
+
+            devopsCloud.appendChild(tool);
+        });
+
+        // -----------------------------
+        // Page-load polish
+        // -----------------------------
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        console.log('Advanced Tailwind portfolio loaded successfully ✨');
+    </script>
+</body>
+</html>
